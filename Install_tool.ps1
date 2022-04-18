@@ -23,9 +23,9 @@ If(test-path $Sources)
 		$Get_Desktop_Profile = [environment]::GetFolderPath('Desktop')
 		copy-item $Get_Tool_Shortcut $Get_Desktop_Profile -Force
 
-		[System.Windows.Forms.MessageBox]::Show("Windows Sandbox Editor has been installed.`nA shortcut has been added on your Desktop.")			
+		[System.Windows.Forms.MessageBox]::Show("Windows Sandbox Editor 安装完成.`n可通过桌面快捷方式启动.")			
 	}
 Else
 	{
-		[System.Windows.Forms.MessageBox]::Show("It seems you don't have dowloaded all the folder structure.`nThe folder Sources is missing !!!")	
+		[System.Windows.Forms.MessageBox]::Show("你没有下载全部文件.`nSources 文件夹缺失 !!!")	
 	}

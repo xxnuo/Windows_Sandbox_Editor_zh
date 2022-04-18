@@ -289,7 +289,7 @@ $Script:Load_WSB_Status = $False
 $Load_Sandbox.Add_Click({
 	$OpenFileDialog1 = New-Object System.Windows.Forms.OpenFileDialog
 	$openfiledialog1.Filter = "WSB File (.wsb)|*.wsb;"
-	$openfiledialog1.title = "Select the WSB file to upload"	
+	$openfiledialog1.title = "选择要加载的 WSB 文件"	
 	$openfiledialog1.ShowHelp = $True	
 	$OpenFileDialog1.initialDirectory = [Environment]::GetFolderPath("Desktop")
 	$OpenFileDialog1.ShowDialog() | Out-Null	
@@ -321,7 +321,7 @@ $Load_Sandbox.Add_Click({
 			$Script:Load_WSB_Status = $True
 		}
 			
-	$Create_Sandbox.Content = "Save existing Sandbox"
+	$Create_Sandbox.Content = "保存沙盒配置"
 	If(($Load_Sandbox_ClipboardRedirection -eq $null) -or ($Load_Sandbox_ClipboardRedirection -eq "Enable"))
 		{
 			$Enable_Clipboard.IsSelected = $True			
@@ -402,22 +402,22 @@ $Browse_File_ToRun.Add_Click({
 	If($File_PS1.IsSelected -eq $True)
 		{
 			$OpenFileDialog_FileToRun.Filter = "PS1 File (.ps1)|*.ps1;"
-			$OpenFileDialog_FileToRun.title = "Select the PS1 file to upload"			
+			$OpenFileDialog_FileToRun.title = "选择要上传的 PS1 文件"			
 		}
 	ElseIf($File_VBS.IsSelected -eq $True)
 		{
 			$OpenFileDialog_FileToRun.Filter = "VBS File (.vbs)|*.vbs;"
-			$OpenFileDialog_FileToRun.title = "Select the VBS file to upload"			
+			$OpenFileDialog_FileToRun.title = "选择要上传的 VBS 文件"			
 		}
 	ElseIf($File_EXE.IsSelected -eq $True)
 		{
 			$OpenFileDialog_FileToRun.Filter = "EXE File (.exe)|*.exe;"
-			$OpenFileDialog_FileToRun.title = "Select the EXE file to upload"			
+			$OpenFileDialog_FileToRun.title = "选择要上传的 EXE 文件"			
 		}
 	ElseIf($File_MSI.IsSelected -eq $True)
 		{
 			$OpenFileDialog_FileToRun.Filter = "MSI File (.msi)|*.msi;"
-			$OpenFileDialog_FileToRun.title = "Select the MSI file to upload"			
+			$OpenFileDialog_FileToRun.title = "选择要上传的 MSI 文件"			
 		}		
 		
 	$OpenFileDialog_FileToRun.ShowHelp = $True	
@@ -563,12 +563,12 @@ Function Generate_Sandbox_Overview
 
 				If ($Run_Sandbox.IsChecked -eq $True)
 					{
-						[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Success :-)", "Your Sandbox has been created and will be launched automatically.")																												
+						[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "成功", "您的沙盒已创建，并将自动启动。")																												
 						& $Sandbox_To_Run
 					}	
 				Else
 					{
-						[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Success :-)", "Your Sandbox has been created")																												
+						[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "成功", "您的沙盒已保存")																												
 					}
 			}
 	}
@@ -581,7 +581,7 @@ $Create_Sandbox.Add_Click({
 		{
 			$sandbox_path_textbox.BorderBrush = "red"
 			$sandbox_path_textbox.BorderThickness = "1"		
-			[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Oops :-(", "Please specify a sandbox path")								
+			[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "哎呀", "请指定沙盒路径")								
 		}
 	Else
 		{
@@ -592,7 +592,7 @@ $Create_Sandbox.Add_Click({
 	
 
 $Sandbox_TabControl.Add_SelectionChanged({	
-	If ($Sandbox_TabControl.SelectedItem.Header -eq "Overview")
+	If ($Sandbox_TabControl.SelectedItem.Header -eq "概述")
 		{
 			Generate_Sandbox_Overview		
 		}		
