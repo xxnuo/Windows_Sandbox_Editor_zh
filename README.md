@@ -1,3 +1,4 @@
+## 汉化已完成，以下是原版介绍 = = 懒得修改了
 # Windows Sandbox Editor
 Generate and manage your windows sandbox
 
